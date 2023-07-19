@@ -23,7 +23,11 @@ jobs:
           Rscript -e "install.packages(c('lubridate', 'httr', 'purrr', 'jsonlite', 'readr'))"
 
       - name: Check installed packages
-        run: Rscript -e "installed.packages()"
+        run: |
+          installed_packages <- installed.packages(lib.loc = .libPaths())
+          print(installed_packages)
+          print(.libPaths())
+
 
       - name: Run R script
         run: Rscript update-database.R
