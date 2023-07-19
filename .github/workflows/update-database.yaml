@@ -19,7 +19,7 @@ jobs:
           r-version: 4.x
 
       - name: Set up renv
-        uses: r-lib/actions/setup-renv@v1
+        uses: r-lib/actions/setup-renv@v2
 
       - name: Run R script
         run: Rscript update-database.R
