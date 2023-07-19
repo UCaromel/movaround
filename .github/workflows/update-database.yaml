@@ -18,10 +18,16 @@ jobs:
         with:
           r-version: 4.x
 
+<<<<<<< HEAD
       - name: Install R packages
         run: |
           Rscript -e "install.packages(c('lubridate', 'purrr', 'jsonlite', 'readr'))"
           Rscript -e "remotes::install_version('httr', version = '1.4.2')"
+=======
+      - name: Install Dependencies
+        run: |
+          Rscript -e "install.packages(c('lubridate', 'httr', 'purrr', 'jsonlite', 'readr'))"
+>>>>>>> parent of 9bb9cd1 (renv update)
 
       - name: Run R script
         run: Rscript update-database.R
