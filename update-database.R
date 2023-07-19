@@ -3,6 +3,7 @@ library(purrr)
 library(jsonlite)
 library(readr)
 library(httr)
+library(dplyr)
 
 ########
 # Utilisation of the lubridate package
