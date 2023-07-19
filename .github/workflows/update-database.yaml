@@ -18,11 +18,8 @@ jobs:
         with:
           r-version: 4.x
 
-      - name: Install MASS 
-        run: Rscript -e "install.packages('MASS', repos = 'https://cran.r-project.org')"
-
       - name: Set up renv
-        uses: r-lib/actions/setup-renv@v2
+        uses: r-lib/actions/setup-renv@v3
 
       - name: Run R script
         run: Rscript update-database.R
