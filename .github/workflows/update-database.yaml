@@ -21,7 +21,7 @@ jobs:
       - name: Install R packages
         run: |
           install.packages(c('lubridate', 'httr', 'purrr', 'jsonlite', 'readr', 'dplyr'), type = 'binary')
-        shell: shell: Rscript {0}
+        shell: Rscript {0}
 
 
       - name: Run R script
