@@ -5,6 +5,13 @@ on:
     - cron: "0 0 * * 0"  # Run every Sunday at midnight
   workflow_dispatch:  # Manual trigger
 
+name: Weekly Database Update
+
+on:
+  schedule:
+    - cron: "0 0 * * 0"  # Run every Sunday at midnight
+  workflow_dispatch:  # Manual trigger
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -18,11 +25,11 @@ jobs:
         with:
           r-version: 4.x
 
+      - name: Install MASS from custom CRAN repository
+        run: Rscript -e "install.packages('MASS', repos = 'https://cran.r-project.org')"
+
       - name: Set up renv
-        uses: r-lib/actions/setup-renv@v1
+        uses: r-lib/actions/setup-renv@v2
 
       - name: Run R script
-        run: |
-          Rscript -e "install.packages('MASS', version = '7.3-59')"
-          Rscript update-database.R
-
+        run: Rscript update-database.R
