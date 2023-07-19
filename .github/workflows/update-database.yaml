@@ -17,13 +17,16 @@ jobs:
         uses: r-lib/actions/setup-r@v2
         with:
           r-version: 4.x
-          
-      - name: Set CRAN Mirror
-        run: Rscript -e 'options(repos = c(CRAN = "https://cloud.r-project.org"))'
 
+      - name: Install R packages
+        run: |
+          Rscript -e "install.packages(c('lubridate', 'httr', 'purrr', 'jsonlite', 'readr'))"
 
-      - name: Restore R Environment with renv
-        run: Rscript -e 'renv::restore()'
+      - name: Install libcurl for httr (if not available)
+        run: |
+          if (!requireNamespace("httr", quietly = TRUE)) {
+            install.packages("httr", dependencies = TRUE)
+          }
 
       - name: Run R script
         run: Rscript update-database.R
