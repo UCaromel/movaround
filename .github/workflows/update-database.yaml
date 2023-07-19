@@ -5,13 +5,6 @@ on:
     - cron: "0 0 * * 0"  # Run every Sunday at midnight
   workflow_dispatch:  # Manual trigger
 
-name: Weekly Database Update
-
-on:
-  schedule:
-    - cron: "0 0 * * 0"  # Run every Sunday at midnight
-  workflow_dispatch:  # Manual trigger
-
 jobs:
   update:
     runs-on: ubuntu-latest
