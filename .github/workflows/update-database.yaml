@@ -25,7 +25,7 @@ jobs:
         with:
           r-version: 4.x
 
-      - name: Install MASS from custom CRAN repository
+      - name: Install MASS 
         run: Rscript -e "install.packages('MASS', repos = 'https://cran.r-project.org')"
 
       - name: Set up renv
