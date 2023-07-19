@@ -20,7 +20,8 @@ jobs:
 
       - name: Install R packages
         run: |
-          Rscript -e "install.packages(c('lubridate', 'httr', 'purrr', 'jsonlite', 'readr'), type = 'binary')"
+          Rscript -e "install.packages('remotes')"
+          Rscript -e "remotes::install_cran(c('lubridate', 'httr', 'purrr', 'jsonlite', 'readr'))"
 
       - name: Run R script
         run: Rscript update-database.R
