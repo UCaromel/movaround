@@ -1,8 +1,8 @@
 library(lubridate)
-library(httr)
 library(purrr)
 library(jsonlite)
 library(readr)
+library(httr)
 
 ########
 # Utilisation of the lubridate package
