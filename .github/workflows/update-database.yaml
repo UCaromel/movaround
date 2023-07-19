@@ -20,9 +20,11 @@ jobs:
 
       - name: Install R packages
         run: |
-          Rscript -e "install.packages(c('lubridate', 'purrr', 'jsonlite', 'readr'))"
-          Rscript -e "remotes::install_version('httr', version = '1.4.2')"
+          Rscript -e "install.packages(c('lubridate', 'httr', 'purrr', 'jsonlite', 'readr'))"
+
+      - name: Install libcurl for httr (if not available)
+        run: |
+          bash -c 'if (!requireNamespace("httr", quietly = TRUE)) { install.packages("httr", dependencies = TRUE) }'
 
       - name: Run R script
         run: Rscript update-database.R
-
